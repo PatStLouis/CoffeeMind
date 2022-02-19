@@ -1,0 +1,22 @@
+{% extends 'layouts/base.jinja' %}
+{% block content %}
+
+<div class="card mb-3">
+	<div class="list-group list-group-flush">
+		{% for schema in schemas %}
+		<div class="list-group-item d-flex align-items-center">
+			<div class="flex-1 text-break">
+				<div>{{ schema.title }} <small class="text-muted">{{ schema.version }}</small></div>
+				<div class="text-white text-opacity-50 d-flex align-items-center">
+					{{ schema.description }}
+				</div>
+			</div>
+			<div>
+				<a href="#modalEdit" data-bs-toggle="modal" class="btn btn-outline-default"><i class="fas fa-{{ schema.icon }}"></i></a>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+	{% include 'widgets/card_arrows.jinja' %}
+</div>
+{% endblock %}

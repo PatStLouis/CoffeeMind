@@ -1,0 +1,41 @@
+{% extends 'layouts/base.jinja' %}
+{% block content %}
+<div class="card mb-3">
+	<div class="card-body">
+		<div class="card">
+			<div class="card-header bg-none fw-bold d-flex align-items-center">
+				{# <img src="https://avatars.dicebear.com/api/jdenticon/{{ contact.label }}.svg" alt="" width="25" class="rounded-circle"> #}
+				{{ contact.label }} 
+				{# <a href="#" class="ms-auto text-muted text-decoration-none" data-toggle="card-expand" data-bs-original-title="" title=""><i class="fa fa-expand"></i></a> #}
+			</div>
+			<div class="card-body bg-white bg-opacity-15 ps ps--active-y" data-scrollbar="true" data-height="400px" data-init="true" style="height: 400px;">
+				<div class="widget-chat">
+					<div class="widget-chat-date">Conversation</div>
+					{% for message in contact.messages %}
+					{% if message.reply %}
+						<div class="widget-chat-item reply">
+					{% else %}
+						<div class="widget-chat-item">
+					{% endif %}
+							<div class="widget-chat-content">
+								<div class="widget-chat-message last">
+									{{ message.content }}
+								</div>
+								<div class="widget-chat-status"><b>{{ message.status }}</b> {{ message.timestamp }}</div>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+			{% include 'widgets/card_arrows.jinja' %}
+		</div>
+	</div>
+	<div class="card-footer bg-none">
+		<div class="input-group">
+			<input type="text" class="form-control" placeholder="Send message...">
+			<button class="btn btn-outline-default" type="button"><i class="fa fa-paper-plane text-muted"></i></button>
+		</div>
+	</div>
+	{% include 'widgets/card_arrows.jinja' %}
+</div>
+{% endblock %}

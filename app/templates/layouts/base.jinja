@@ -1,0 +1,50 @@
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>{{ title }}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link href="static/assets/css/vendor.min.css" rel="stylesheet">
+		<link href="static/assets/css/app.min.css" rel="stylesheet">
+	</head>
+	<body class="pace-done ">
+		<div class="pace pace-inactive">
+			<div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+				<div class="pace-progress-inner">
+				</div>
+			</div>
+			<div class="pace-activity">
+			</div>
+		</div>
+
+		<div id="app" class="app app-full-height app-without-header">
+			{# {% include 'layouts/header.jinja' %} #}
+			{# {% include 'layouts/sidebar.jinja' %} #}
+			{# <button class="app-sidebar-mobile-backdrop" data-toggle-target=".app" data-toggle-class="app-sidebar-mobile-toggled">
+			</button> #}
+			<div class="login">
+				<div class="login-content">
+
+					<h1 class="text-center">{{ title }}</h1>
+					<div class="text-white text-opacity-50 text-center mb-4">
+						{{ description }}
+					</div>
+					{% block content %}{% endblock %}
+					{% include 'widgets/toolbar.jinja' %}
+
+				</div>
+			</div>
+			
+			{# <a href="#" data-toggle="scroll-to-top" class="btn-scroll-top fade">
+				<i class="fa fa-arrow-up">
+				</i>
+			</a> #}
+			{# {% include 'layouts/theme_panel.jinja' %} #}
+		</div>
+
+		<script src="static/assets/js/vendor.min.js"></script>
+		<script src="static/assets/js/app.min.js"></script>
+		
+	</body>
+</html>
